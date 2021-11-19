@@ -11,6 +11,9 @@ class DeviceState(models.Model):
     light_state = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     users = models.ManyToManyField(User)
+    
+    def __str__(self):
+        return self.name
 
 
 class DeviceHistory(models.Model):
@@ -19,5 +22,8 @@ class DeviceHistory(models.Model):
     pump_state = models.BooleanField(default=False)
     comp_state = models.BooleanField(default=False)
     light_state = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.device_id) + " --> " + str(self.date)
 
 
